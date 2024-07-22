@@ -17,7 +17,7 @@ for cases in remove_useless:
     filtered = fnmatch.filter(backup_changes1['Symbol Name'], cases)
 
     print(filtered)
-
+    
     for x in filtered:
 
         index_remove = backup_changes1.loc[backup_changes1['Symbol Name'] == x].index
@@ -25,6 +25,7 @@ for cases in remove_useless:
         print(index_remove)
 
         backup_changes1.drop(index= index_remove, inplace= True)
+    
 
 backup_changes1.drop_duplicates(subset= ['Reference Designator'], keep= 'first', inplace= True, ignore_index=True)
 
